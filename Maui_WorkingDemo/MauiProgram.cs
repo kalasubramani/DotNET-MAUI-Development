@@ -23,12 +23,16 @@ namespace Maui_WorkingDemo
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainViewModel>();
 
+            //add dependency to localDbService
+            builder.Services.AddSingleton<LocalDbService>();
+
             //creates a copy every single time we need and destroyed when it is done
             builder.Services.AddTransient<DetailPage>();
             builder.Services.AddTransient<DetailViewModel>();
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            
 
             return builder.Build();
         }
